@@ -55,8 +55,13 @@ public class Pessoa {
     }
 
 
+    @Override
     public String toString() {
-        return nome.toString();
+        return   id + "\n" +
+                "Nome=" + nome  +"\n" +
+                "Idade=" + idade +"\n" +
+                "Endereco=" + endereco +"\n" +
+                "Telefone=" + telefone;
     }
 
 }
