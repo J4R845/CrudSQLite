@@ -2,10 +2,13 @@ package com.delarue.crudsqlite.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.delarue.crudsqlite.modelo.Pessoa;
+
+import java.util.ArrayList;
 
 
 public class PessoaDao extends SQLiteOpenHelper {
@@ -64,7 +67,33 @@ public class PessoaDao extends SQLiteOpenHelper {
 
         return retornoDB;
 
-
     }
 
+    // Metodos para fazer Select
+
+    public ArrayList<Pessoa> selectAllPessoa(){
+
+        // Metodo para carregar ArrayList
+
+        String[] coluns = {ID,NOME,IDADE,ENDERECO,TELEFONE};
+
+        Cursor cursor = getWritableDatabase().query(TABELA,coluns,null,null,null,null, null,null);
+
+        ArrayList<Pessoa> listPessoa = new ArrayList<Pessoa>();
+
+        while (cursor.moveToNext()){
+            Pessoa p = new Pessoa();
+
+            p.setId(cursor.getInt(0));
+            p.setNome(cursor.getString(1));
+            p.setIdade(cursor.getInt(2));
+            p.setEndereco(cursor.getString(3));
+            p.setTelefone(cursor.getString(4));
+
+            listPessoa.add(p);
+        }
+
+        return listPessoa;
+
+    }
 }

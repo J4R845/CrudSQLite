@@ -33,6 +33,7 @@
         android:id="@+id/editTelefone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:ems="10"
         android:hint="Telefone"/>
 
