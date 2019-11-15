@@ -33,9 +33,9 @@ public class PessoaDao extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         String sql = "CREATE TABLE " + TABELA + " ( "
-                        + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                        + NOME + " TEXT, " + IDADE + " TEXT, " + ENDERECO + " TEXT,"
-                        + TELEFONE + " TEXT ) ;";
+                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + NOME + " TEXT, " + IDADE + " TEXT, " + ENDERECO + " TEXT,"
+                + TELEFONE + " TEXT ) ;";
 
         db.execSQL(sql);
 
@@ -45,7 +45,7 @@ public class PessoaDao extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        String sql = "DROP TABLE IF EXISTS "+TABELA;
+        String sql = "DROP TABLE IF EXISTS " + TABELA;
 
         db.execSQL(sql);
 
@@ -53,7 +53,7 @@ public class PessoaDao extends SQLiteOpenHelper {
 
     }
 
-    public long salvarPessoa(Pessoa p){
+    public long salvarPessoa(Pessoa p) {
 
         ContentValues values = new ContentValues();
         long retornoDB;
@@ -63,7 +63,35 @@ public class PessoaDao extends SQLiteOpenHelper {
         values.put(ENDERECO, p.getEndereco());
         values.put(TELEFONE, p.getTelefone());
 
-        retornoDB = getWritableDatabase().insert(TABELA,null,values);
+        retornoDB = getWritableDatabase().insert(TABELA, null, values);
+
+        return retornoDB;
+
+    }
+
+    public long alterarPessoa(Pessoa p) {
+
+        ContentValues values = new ContentValues();
+        long retornoDB;
+
+        values.put(NOME, p.getNome());
+        values.put(IDADE, p.getIdade());
+        values.put(ENDERECO, p.getEndereco());
+        values.put(TELEFONE, p.getTelefone());
+
+        String[] args = {String.valueOf(p.getId())};
+        retornoDB = getWritableDatabase().update(TABELA,  values, "id=?",args);
+
+        return retornoDB;
+
+    }
+
+    public long excluirPessoa(Pessoa p) {
+
+        long retornoDB;
+
+        String[] args = {String.valueOf(p.getId())};
+        retornoDB = getWritableDatabase().delete(TABELA,ID+ "=?",args);
 
         return retornoDB;
 
@@ -71,17 +99,19 @@ public class PessoaDao extends SQLiteOpenHelper {
 
     // Metodos para fazer Select
 
-    public ArrayList<Pessoa> selectAllPessoa(){
+    public ArrayList<Pessoa> selectAllPessoa() {
 
         // Metodo para carregar ArrayList
 
-        String[] coluns = {ID,NOME,IDADE,ENDERECO,TELEFONE};
+        String[] coluns = {ID, NOME, IDADE, ENDERECO, TELEFONE};
 
-        Cursor cursor = getWritableDatabase().query(TABELA,coluns,null,null,null,null, null,null);
+        Cursor cursor = getWritableDatabase().query(TABELA, coluns, null,
+                null, null, null, "upper(nome)",
+                null);
 
         ArrayList<Pessoa> listPessoa = new ArrayList<Pessoa>();
 
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             Pessoa p = new Pessoa();
 
             p.setId(cursor.getInt(0));

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +42,14 @@ public class FormPessoa extends AppCompatActivity {
 
             btnVariavel.setText("Alterar");
 
+            editNome.setText(altpessoa.getNome());
+            editIdade.setText(altpessoa.getIdade()+"");
+            editEndereco.setText(altpessoa.getEndereco());
+            editTelefone.setText(altpessoa.getTelefone());
+
+            pessoa.setId(altpessoa.getId());
+
+
         }else {
 
             btnVariavel.setText("Salvar");
@@ -51,6 +60,8 @@ public class FormPessoa extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Log.i("CrudSQLite","Testando App");
+
                 pessoa.setNome(editNome.getText().toString());
                 pessoa.setIdade(Integer.parseInt(editIdade.getText().toString()));
                 pessoa.setEndereco(editEndereco.getText().toString());
@@ -59,6 +70,7 @@ public class FormPessoa extends AppCompatActivity {
                 if (btnVariavel.getText().toString().equals("Salvar")){
 
                     retornoDB = pessoaDao.salvarPessoa(pessoa);
+                    pessoaDao.close();
 
                     if (retornoDB == -1){
 
@@ -70,6 +82,16 @@ public class FormPessoa extends AppCompatActivity {
 
                 }else {
 
+                    retornoDB = pessoaDao.alterarPessoa(pessoa);
+                    pessoaDao.close();
+
+                    if(retornoDB ==-1){
+                        alert("Erro Ao Atualizar Os Dados");
+
+                    }else {
+
+                        alert("Os Dados Foram Atualizados");
+                    }
 
                 }
 

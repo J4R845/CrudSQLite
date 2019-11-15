@@ -1,6 +1,8 @@
 package com.delarue.crudsqlite.modelo;
 
-public class Pessoa {
+import java.io.Serializable;
+
+public class Pessoa implements Serializable {
 
     // Classe Pojo
 
@@ -57,11 +59,11 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return   id + "\n" +
-                "Nome=" + nome  +"\n" +
-                "Idade=" + idade +"\n" +
-                "Endereco=" + endereco +"\n" +
-                "Telefone=" + telefone;
+        return   //id + "\n" +
+                "Nome: " + nome  +"\n" +
+                "Idade: " + idade + " Anos"+"\n" +
+                "Endereco: " + endereco +"\n" +
+                "Telefone: " + telefone;
     }
 
 }
