@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Nome"/>
+        android:hint="@string/nome"/>
 
     <EditText
         android:id="@+id/editIdade"
@@ -20,14 +20,15 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
-        android:hint="Idade"/>
+        android:hint="@string/idade"/>
 
     <EditText
         android:id="@+id/editEndereco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="text"
         android:ems="10"
-        android:hint="Endereço"/>
+        android:hint="@string/endereco"/>
 
     <EditText
         android:id="@+id/editTelefone"
@@ -35,13 +36,12 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:hint="Telefone"/>
+        android:hint="@string/telefone" />
 
     <Button
         android:id="@+id/btnVariavel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="phone"
         android:textAllCaps="false"
-        android:text="Button" />
+        android:text="@string/button_variavel" />
 </LinearLayout>

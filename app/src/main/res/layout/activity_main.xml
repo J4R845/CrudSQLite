@@ -4,20 +4,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="ExtraText">
 
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Space
+            android:layout_width="15dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_dos_contatos"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="85pt"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btnNovoCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textAlignment="textEnd"
+            android:text="@string/btn_adicionar" />
+
+    </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:id="@+id/listPessoas"/>
-
-    <Button
-        android:id="@+id/btnNovoCadastro"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="Adicionar" />
+        android:id="@+id/listPessoas">
+
+    </ListView>
+
 
 
 </LinearLayout>

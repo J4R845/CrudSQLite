@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Agenda</string>
+    <string name="btn_adicionar">Adicionar</string>
+    <string name="titulo_dos_contatos">Contatos</string>
+    <string name="button_variavel">Button</string>
+    <string name="telefone">Telefone</string>
+    <string name="endereco">Endereço</string>
+    <string name="idade">Idade</string>
+    <string name="nome">Nome</string>
 </resources>
