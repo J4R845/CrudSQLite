@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.delarue.crudsqlite.dao.PessoaDao;
 import com.delarue.crudsqlite.modelo.Pessoa;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,24 @@ public class MainActivity extends AppCompatActivity {
         listVisivel =  findViewById(R.id.listPessoas);
         registerForContextMenu(listVisivel);
         btnNovoCadastro =  findViewById(R.id.btnNovoCadastro);
+
+
+        // Inicio Fab
+
+        FloatingActionButton mFab = findViewById(R.id.floatingActionButton);
+
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(MainActivity.this, FormPessoa.class);
+
+                startActivity(i);
+
+            }
+        });
+
+        // Fim Fab
 
 
         btnNovoCadastro.setOnClickListener(new View.OnClickListener() {
