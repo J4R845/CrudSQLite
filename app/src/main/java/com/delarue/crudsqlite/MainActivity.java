@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         listVisivel =  findViewById(R.id.listPessoas);
         registerForContextMenu(listVisivel);
-        btnNovoCadastro =  findViewById(R.id.btnNovoCadastro);
+
+        //btnNovoCadastro =  findViewById(R.id.btnNovoCadastro);
 
 
         // Inicio Fab
@@ -56,16 +57,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Fim Fab
 
-
-        btnNovoCadastro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(MainActivity.this, FormPessoa.class);
-
-                startActivity(i);
-            }
-        });
 
         listVisivel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
