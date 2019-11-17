@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -58,14 +59,26 @@
         android:ems="10"
         android:inputType="number" />
 
-    <Button
-        android:id="@+id/btnVariavel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorTextoBotao"
-        android:layout_gravity="end"
-        android:text="@string/button_variavel" />
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <Button
+           android:id="@+id/btnVariavel"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginEnd="8dp"
+           android:background="@color/colorPrimary"
+           android:text="@string/button_variavel"
+           android:textAllCaps="false"
+           android:textColor="@color/colorTextoBotao"
+           app:layout_constraintEnd_toEndOf="parent"
+           tools:ignore="MissingConstraints" />
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
 </LinearLayout>

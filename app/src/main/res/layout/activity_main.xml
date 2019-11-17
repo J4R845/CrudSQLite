@@ -23,11 +23,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/titulo_dos_contatos"
+            android:textStyle="bold"
             android:textSize="15sp" />
 
-
-
     </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"
@@ -39,7 +39,6 @@
         android:layout_width="match_parent"
         android:layout_height="480dp"
         android:id="@+id/listPessoas">
-
     </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -50,6 +49,7 @@
         android:layout_margin="16dp"
         android:clickable="true"
         android:layout_marginEnd="16dp"
+        an
         app:backgroundTint="@color/colorPrimary"
         app:fabSize="normal"
         app:srcCompat="@android:drawable/ic_input_add" />
